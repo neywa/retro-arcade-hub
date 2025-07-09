@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retro-arcade-frontend
+  labels:
+    app: retro-arcade-hub
+    component: frontend
+spec:
+  replicas: 1 # Start with 1 replica for simplicity, we can scale later
+  selector:
+    matchLabels:
+      app: retro-arcade-hub
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: retro-arcade-hub
+        component: frontend
+    spec:
+      containers:
+        - name: frontend-app
+          # Replace <your_quay_username> with your actual Quay.io username
+          image: quay.io/rhn_support_rbobek/retro-arcade-hub-frontend:1.0.0
+          ports:
+            - containerPort: 8080 # The port your Node.js app listens on (from server.js)
+          # Define resource requests and limits for better cluster management
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+          # Liveness probe: checks if the application is still running and responsive
+          livenessProbe:
+            httpGet:
+              path: /healthz # Our health check endpoint in server.js
+              port: 8080
+            initialDelaySeconds: 10 # Give the app time to start up
+            periodSeconds: 5      # Check every 5 seconds
+            timeoutSeconds: 3     # Timeout after 3 seconds
+            failureThreshold: 3   # Consider unhealthy after 3 consecutive failures
+          # Readiness probe: checks if the application is ready to accept traffic
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 1
+      # OpenShift specific: If you're running on OpenShift, you might need to
+      # specify a service account with appropriate permissions if you're doing
+      # more than just running a basic web server. For this simple app, it's
+      # usually not strictly necessary, but good to be aware of.
+      # serviceAccountName: default
+

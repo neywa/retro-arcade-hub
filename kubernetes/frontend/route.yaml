@@ -1,0 +1,20 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: retro-arcade-frontend-route
+  labels:
+    app: retro-arcade-hub
+    component: frontend
+spec:
+  to:
+    kind: Service
+    name: retro-arcade-frontend-service # Points to the Service we just defined
+    weight: 100
+  port:
+    targetPort: 8080 # The target port on the service (which maps to containerPort 8080)
+  # Optional: Add TLS termination for HTTPS, highly recommended for production
+  # tls:
+  #   termination: edge
+  #   insecureEdgeTerminationPolicy: Redirect
+  # host: arcade.yourdomain.com # Optional: if you have a custom domain
+  wildcardPolicy: None
