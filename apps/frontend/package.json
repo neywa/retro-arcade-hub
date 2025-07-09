@@ -1,0 +1,12 @@
+{
+  "name": "retro-arcade-hub-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the Retro Arcade Game Hub",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

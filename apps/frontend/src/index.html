@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Arcade Hub</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem; /* Add some padding for smaller screens */
+        }
+        .game-card {
+            background-color: #2d3748; /* Slightly lighter dark for cards */
+            border: 2px solid #4a5568; /* Border for definition */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        .button-primary {
+            background-color: #63b3ed; /* Blue for primary action */
+            color: #1a202c;
+            font-weight: bold;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .button-primary:hover {
+            background-color: #4299e1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl border border-gray-700">
+        <header class="text-center mb-8">
+            <h1 class="text-5xl font-extrabold text-blue-400 mb-4 tracking-tight">
+                Retro Arcade Hub
+            </h1>
+            <p class="text-xl text-gray-300">
+                Your portal to classic pixelated fun, powered by OpenShift!
+            </p>
+        </header>
+
+        <main>
+            <section class="mb-10">
+                <h2 class="text-3xl font-bold text-blue-300 mb-6 text-center">
+                    Available Games
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Game Card 1: Placeholder for a future game -->
+                    <div class="game-card p-6 rounded-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/120x120/4a5568/e2e8f0?text=GAME+1" alt="Game Placeholder" class="rounded-full mb-4 border-2 border-blue-400">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Tetris Clone</h3>
+                        <p class="text-gray-400 mb-4">
+                            Stack 'em high and clear the lines in this timeless classic!
+                        </p>
+                        <a href="#" class="button-primary py-2 px-6 rounded-full text-lg">
+                            Play Now
+                        </a>
+                    </div>
+
+                    <!-- Game Card 2: Placeholder for another future game -->
+                    <div class="game-card p-6 rounded-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/120x120/4a5568/e2e8f0?text=GAME+2" alt="Game Placeholder" class="rounded-full mb-4 border-2 border-blue-400">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Space Invaders</h3>
+                        <p class="text-gray-400 mb-4">
+                            Defend Earth from alien invaders in this arcade shooter.
+                        </p>
+                        <a href="#" class="button-primary py-2 px-6 rounded-full text-lg">
+                            Play Now
+                        </a>
+                    </div>
+
+                    <!-- Game Card 3: Placeholder for yet another future game -->
+                    <div class="game-card p-6 rounded-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/120x120/4a5568/e2e8f0?text=GAME+3" alt="Game Placeholder" class="rounded-full mb-4 border-2 border-blue-400">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Snake Game</h3>
+                        <p class="text-gray-400 mb-4">
+                            Grow your snake and avoid the walls in this addictive classic.
+                        </p>
+                        <a href="#" class="button-primary py-2 px-6 rounded-full text-lg">
+                            Play Now
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-blue-300 mb-4">About This Project</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    This Retro Arcade Hub is a hands-on learning project designed to explore
+                    Kubernetes and OpenShift concepts. Each game will eventually be its own
+                    microservice, demonstrating containerization, scaling, networking, and
+                    state management in a cloud-native environment.
+                </p>
+            </section>
+        </main>
+
+        <footer class="text-center text-gray-500 text-sm mt-8 pt-6 border-t border-gray-700">
+            &copy; 2025 Retro Arcade Hub. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
