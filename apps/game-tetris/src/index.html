@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Tetris</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Retro Tetris</h1>
+        <!-- --- FIX START --- -->
+        <!-- Adjusted canvas width to match COL * SQ (10 * 20 = 200) -->
+        <canvas id="tetrisCanvas" width="200" height="400"></canvas>
+        <!-- --- FIX END --- -->
+        <div class="controls">
+            <p>Use Arrow Keys to Move</p>
+            <p>Up: Rotate | Down: Soft Drop | Space: Hard Drop</p>
+        </div>
+        <div class="score-board">
+            Score: <span id="score">0</span>
+        </div>
+        <button id="startButton">Start Game</button>
+    </div>
+    <script src="/src/game.js"></script>
+</body>
+</html>
+

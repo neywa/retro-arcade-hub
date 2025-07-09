@@ -1,0 +1,129 @@
+/* retro-arcade-hub/apps/game-tetris/src/style.css */
+
+body {
+    font-family: 'Press Start 2P', cursive; /* A retro-style font if available, otherwise fallback */
+    background-color: #282c34; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.game-container {
+    background-color: #1a1a1a;
+    border: 5px solid #61dafb; /* Tron-like border */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.5); /* Glowing effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #61dafb; /* Bright blue for title */
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #61dafb;
+}
+
+canvas {
+    background-color: #000;
+    border: 2px solid #555;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.controls {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+.score-board {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+}
+
+button {
+    background-color: #4CAF50; /* Green start button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Custom Message Box Styles */
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2d3748; /* Dark background */
+    border: 2px solid #63b3ed; /* Blue border */
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    text-align: center;
+    color: #e2e8f0;
+    font-size: 1.2em;
+}
+
+.message-box p {
+    margin-bottom: 20px;
+}
+
+.message-box-button {
+    background-color: #63b3ed; /* Blue button */
+    color: #1a202c;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.message-box-button:hover {
+    background-color: #4299e1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 15px;
+        width: 95%;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    canvas {
+        width: 100%; /* Make canvas responsive within its container */
+        height: auto;
+    }
+    .controls {
+        font-size: 0.8em;
+    }
+    .score-board {
+        font-size: 1.2em;
+    }
+    button {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+}
+
