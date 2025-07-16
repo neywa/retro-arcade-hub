@@ -1,0 +1,19 @@
+# retro-arcade-hub/kubernetes/game-tetris/service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: retro-arcade-tetris-game-service
+  labels:
+    app: retro-arcade-hub
+    component: game-tetris
+spec:
+  selector:
+    app: retro-arcade-hub
+    component: game-tetris
+  ports:
+    - protocol: TCP
+      port: 80        # The port the service will listen on (standard HTTP)
+      targetPort: 8080 # The port on the container that the service forwards to
+  type: ClusterIP # Default type, makes the service only reachable within the cluster
+

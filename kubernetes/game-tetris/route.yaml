@@ -1,0 +1,17 @@
+# retro-arcade-hub/kubernetes/game-tetris/route.yaml
+
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: retro-arcade-tetris-game-route
+  labels:
+    app: retro-arcade-hub
+    component: game-tetris
+spec:
+  to:
+    kind: Service
+    name: retro-arcade-tetris-game-service # Points to the Service we just defined
+    weight: 100
+  port:
+    targetPort: 8080 # The target port on the service (which maps to containerPort 8080)
+  wildcardPolicy: None
