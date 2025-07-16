@@ -56,15 +56,23 @@
                     Available Games
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Game Card 1: Tetris Clone - UPDATED LINK -->
+                    <!-- Game Card 1: Link to the Tetris Microservice -->
                     <div class="game-card p-6 rounded-lg flex flex-col items-center text-center">
-                        <img src="https://placehold.co/120x120/4a5568/e2e8f0?text=TETRIS" alt="Tetris Game Icon" class="rounded-full mb-4 border-2 border-blue-400">
+                        <img src="https://placehold.co/120x120/4a5568/e2e8f0?text=GAME+1" alt="Game Placeholder" class="rounded-full mb-4 border-2 border-blue-400">
                         <h3 class="text-2xl font-semibold text-white mb-2">Tetris Clone</h3>
                         <p class="text-gray-400 mb-4">
                             Stack 'em high and clear the lines in this timeless classic!
                         </p>
-                        <!-- REPLACE THIS '#' WITH YOUR ACTUAL TETRIS GAME ROUTE URL -->
-                        <a href="http://retro-arcade-tetris-game-route-retro-arcade-hub-frontend.apps.rbobek.sandbox991.opentlc.com>" class="button-primary py-2 px-6 rounded-full text-lg">
+                        <!-- 
+                          FIX: Added target="_blank" and rel="noopener noreferrer"
+                          - target="_blank" opens the link in a new tab.
+                          - rel="noopener noreferrer" is a security best practice that prevents the new tab 
+                            from accessing the original tab's window object.
+                        -->
+                        <a href="<route-to-your-tetris-game.example.com" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="button-primary py-2 px-6 rounded-full text-lg">
                             Play Now
                         </a>
                     </div>
