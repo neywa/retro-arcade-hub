@@ -1,0 +1,123 @@
+/* apps/game-invaders/src/style.css */
+
+body {
+    font-family: 'Courier New', Courier, monospace; /* Classic retro terminal font */
+    background-color: #000000; /* Black background */
+    color: #00ff00; /* Green text, classic monitor color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.6); /* Glowing effect */
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #00ff00;
+    margin-bottom: 15px;
+    font-size: 2.8em;
+    text-shadow: 0 0 10px #00ff00;
+    letter-spacing: 3px;
+}
+
+.game-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+canvas {
+    background-color: #000;
+    border: 2px solid #008f00; /* Darker green border */
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.controls {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #cccccc;
+}
+
+button {
+    background-color: #00ff00;
+    color: #000000;
+    padding: 12px 25px;
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #000000;
+    color: #00ff00;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+/* Custom Message Box Styles */
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #111;
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 255, 0, 0.5);
+    z-index: 1000;
+    text-align: center;
+    color: #00ff00;
+    font-size: 1.5em;
+}
+
+.message-box p {
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+    .game-container {
+        padding: 10px;
+        width: 98%;
+        border-width: 2px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+    .game-header {
+        font-size: 1.2em;
+    }
+    .controls {
+        font-size: 0.9em;
+    }
+    button {
+        font-size: 1.1em;
+        padding: 10px 20px;
+    }
+}
+

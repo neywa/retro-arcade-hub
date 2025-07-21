@@ -1,0 +1,29 @@
+<!-- apps/game-invaders/src/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Space Invaders</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Space Invaders</h1>
+        <div class="game-header">
+            <span>Score: <span id="score">0</span></span>
+            <span>Lives: <span id="lives">3</span></span>
+        </div>
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        <div class="controls">
+            <p>Use Arrow Keys to Move & Spacebar to Shoot</p>
+        </div>
+        <button id="startButton">Start Game</button>
+        <div id="messageBox" class="message-box" style="display: none;">
+             <p id="messageText"></p>
+             <button id="messageButton">OK</button>
+        </div>
+    </div>
+    <script src="/src/game.js"></script>
+</body>
+</html>
