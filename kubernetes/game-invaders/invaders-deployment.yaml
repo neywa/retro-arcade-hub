@@ -1,0 +1,46 @@
+# OpenShift/Kubernetes resource for the Space Invaders Deployment.
+#
+# To apply this configuration:
+# oc apply -f invaders-deployment.yaml -n rag-space-invaders
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # The name of the deployment
+  name: game-invaders
+  # The namespace where the resources will be created
+  namespace: rag-space-invaders
+  labels:
+    # Labels are used to identify and group resources
+    app: game-invaders
+spec:
+  # The number of pod replicas to run
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game-invaders
+  template:
+    metadata:
+      labels:
+        app: game-invaders
+    spec:
+      containers:
+        - name: game-invaders
+          # The container image you pushed to Quay.io
+          image: quay.io/rhn_support_rbobek/retro-arcade-game-space-invaders:1.0.4
+          ports:
+            # The port the application listens on inside the container
+            - containerPort: 8080
+          # Probes for health checking, essential for robust deployments
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20

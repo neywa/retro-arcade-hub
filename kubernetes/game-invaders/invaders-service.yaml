@@ -1,0 +1,21 @@
+# OpenShift/Kubernetes resource for the Space Invaders Service.
+#
+# To apply this configuration:
+# oc apply -f invaders-service.yaml -n rag-space-invaders
+
+apiVersion: v1
+kind: Service
+metadata:
+  # The name of the service
+  name: game-invaders-svc
+  namespace: rag-space-invaders
+spec:
+  # This selector ensures the service targets pods with the 'app: game-invaders' label
+  selector:
+    app: game-invaders
+  ports:
+    - protocol: TCP
+      # The port the service will be available on within the cluster
+      port: 8080
+      # The port on the pod that the service will forward traffic to
+      targetPort: 8080

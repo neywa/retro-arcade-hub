@@ -1,0 +1,23 @@
+# OpenShift/Kubernetes resource for the Space Invaders Route.
+#
+# To apply this configuration:
+# oc apply -f invaders-route.yaml -n rag-space-invaders
+
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  # The name of the route
+  name: game-invaders-route
+  namespace: rag-space-invaders
+spec:
+  # Exposes the service to external traffic
+  to:
+    kind: Service
+    name: game-invaders-svc
+  port:
+    # The target port on the service to route traffic to
+    targetPort: 8080
+  # Configures TLS for secure HTTPS traffic
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
