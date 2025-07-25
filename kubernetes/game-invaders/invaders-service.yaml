@@ -8,7 +8,6 @@ kind: Service
 metadata:
   # The name of the service
   name: game-invaders-svc
-  namespace: rag-space-invaders
 spec:
   # This selector ensures the service targets pods with the 'app: game-invaders' label
   selector:

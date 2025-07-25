@@ -9,7 +9,6 @@ metadata:
   # The name of the deployment
   name: game-invaders
   # The namespace where the resources will be created
-  namespace: rag-space-invaders
   labels:
     # Labels are used to identify and group resources
     app: game-invaders

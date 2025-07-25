@@ -8,7 +8,6 @@ kind: Route
 metadata:
   # The name of the route
   name: game-invaders-route
-  namespace: rag-space-invaders
 spec:
   # Exposes the service to external traffic
   to:
