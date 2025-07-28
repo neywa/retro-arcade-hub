@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retrotetris
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: retro-tetris
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: kubernetes/game-tetris
+    repoURL: https://github.com/neywa/retro-arcade-hub.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated: {}
