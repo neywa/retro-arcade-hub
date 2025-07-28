@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retrofrontend
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: retro-frontend
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: kubernetes/frontend
+    repoURL: https://github.com/neywa/retro-arcade-hub.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated: {}
