@@ -22,7 +22,7 @@ spec:
       containers:
         - name: tetris-game-app
           # Replace <your_quay_username> with your actual Quay.io username
-          image: quay.io/<your-quay-username>/retro-arcade-game-tetris:1.0.0
+          image: quay.io/rhn_support_rbobek/retro-arcade-game-tetris:1.0.12
           ports:
             - containerPort: 8080 # The port your Flask app listens on (from app.py)
           resources:
