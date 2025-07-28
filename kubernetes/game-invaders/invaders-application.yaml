@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: retroinvaders
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: retro-invaders
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: kubernetes/game-invaders
+    repoURL: https://github.com/neywa/retro-arcade-hub.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated: {}
