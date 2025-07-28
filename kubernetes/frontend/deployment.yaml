@@ -21,7 +21,7 @@ spec:
       containers:
         - name: frontend-app
           # Updated to the new image tag you just built
-          image: quay.io/<your-quay-username>/retro-arcade-hub-frontend:1.0.0
+          image: quay.io/rhn_support_rbobek/retro-arcade-hub-frontend:1.0.3
           ports:
             - containerPort: 8080
           resources:
