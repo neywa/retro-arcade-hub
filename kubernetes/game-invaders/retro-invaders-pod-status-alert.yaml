@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: retro-invaders-pod-status
+  namespace: retro-invaders
+spec:
+  groups:
+  - name: invaders-pod-health # A logical group for pod-related health alerts
+    rules:
+    - alert: InvadersPodNotRunning
+      expr: |
+        # Select pods in the 'retro-invaders' namespace
+        # and whose phase is Pending, Failed, or Unknown, and the value is 1 (true)
+        kube_pod_status_phase{namespace="retro-invaders", phase=~"Pending|Failed|Unknown"} == 1
+      for: 2m # Condition must be true for 2 minutes before firing the alert
+      labels:
+        severity: critical # Indicates a severe issue requiring immediate attention
+        app: retro-invaders # Useful label for filtering and routing alerts
+        # Optional: Add a team label if your Alertmanager is configured to route based on teams
+        # team: my-application-oncall
+      annotations:
+        summary: "Retro Invaders Pod {{ $labels.pod }} in namespace {{ $labels.namespace }} is not running"
+        description: "Pod {{ $labels.pod }} (namespace: {{ $labels.namespace }}) is in phase '{{ $labels.phase }}'. This indicates an issue with the application pod. Investigate pod logs and events."

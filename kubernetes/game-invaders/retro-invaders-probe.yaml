@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: retro-invaders-probe
+  namespace: retro-invaders # This probe goes in the same namespace as your app
+spec:
+  interval: 30s
+  prober:
+    url: blackbox-exporter.openshift-user-workload-monitoring.svc.cluster.local:9115
+  targets:
+    staticConfig:
+      static:
+        - https://game-invaders-route-retro-invaders.apps.rbobek.sandbox2261.opentlc.com/
+      labels:
+        app: retro-invaders
+        env: production
+      relabelConfigs:
+        - sourceLabels: [__param_target]
+          targetLabel: instance # The URL will become the 'instance' label
+        - sourceLabels: [__param_module]
+          targetLabel: module # The module used will become the 'module' label
+        - targetLabel: job
+          replacement: "blackbox-probes" # Group these probes under a common job name
+  module: http_2xx # The module defined in your blackbox-exporter-config ConfigMap

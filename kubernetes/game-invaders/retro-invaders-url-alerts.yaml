@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: retro-invaders-url-reachable
+  namespace: retro-invaders
+spec:
+  groups:
+  - name: invaders-probes
+    rules:
+    - alert: InvadersURLDown
+      expr: probe_success{app="retro-invaders"} == 0
+      for: 5m # Wait for 5 minutes of continuous failure before firing
+      labels:
+        severity: critical
+        app: retro-invaders
+      annotations:
+        summary: "Application URL {{ $labels.instance }} is down"
+        description: "The URL {{ $labels.instance }} is currently unreachable or not returning a 200 OK. Probe time: {{ $value }}s"
